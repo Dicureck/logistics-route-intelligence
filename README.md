@@ -71,4 +71,4 @@ The interactive portfolio view uses **its own independently generated, determini
 **Publication note:** native Power BI / Tableau integrations are methodology examples until runnable native artifacts and independent tool validation are published. See the [BI calculation examples](https://github.com/Dicureck/Dicureck/blob/main/knowledge-base/bi-examples.md).
 
 
-**Release preparation:** [v0.1.0 notes](RELEASE_NOTES_DRAFT.md) · [Changelog](CHANGELOG.md). Formal GitHub Release pending.
+**Official GitHub Release:** [v0.1.0](https://github.com/Dicureck/logistics-route-intelligence/releases/tag/v0.1.0) — CI-gated source snapshot, release notes, and downloadable source archives. [Changelog](CHANGELOG.md).
