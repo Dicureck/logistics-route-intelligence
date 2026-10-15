@@ -1,0 +1,45 @@
+name: Publish v0.1.0 Official Release
+on:
+  workflow_run:
+    workflows: ["Lab CI"]
+    types: [completed]
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Create version only after successful CI of exact commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test -f LICENSE && test -f RELEASE_NOTES.md
+          if gh release view v0.1.0 --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Native v0.1.0 release already exists; no modification."
+            exit 0
+          fi
+          if gh api "repos/$GH_REPO/git/ref/tags/v0.1.0" >/dev/null 2>&1; then
+            echo "Tag already exists without Release; manual review required."
+            exit 1
+          fi
+          gh release create v0.1.0 --repo "$GH_REPO" \
+            --target "$EXPECTED_SHA" \
+            --title "Logistics & Route Intelligence · v0.1.0" \
+            --notes-file RELEASE_NOTES.md \
+            --latest
+          gh release view v0.1.0 --repo "$GH_REPO" --json tagName,url,targetCommitish
