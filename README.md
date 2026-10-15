@@ -59,3 +59,13 @@ Offline HTML dashboard         Power BI CSV import
 ## Portfolio context
 
 Designed by **Melissa Castro** as an original public demonstration of operational analytics methods. Not sourced from, representative of, or endorsed by any employer or client. MIT licensed.
+
+## Explore the interactive portfolio dashboard
+
+[**Open Route Operations interactive demo →**](https://dicureck.github.io/?demo=logistics#lab)
+
+[Read the engineering case study →](https://github.com/Dicureck/Dicureck/blob/main/case-studies/logistics.md)
+
+The interactive portfolio view uses **its own independently generated, deterministic fictional sample**. It is an exploration companion—not the same dataset as this repository and not a claim of cross-project reconciliation. Filter records, inspect metrics and export synthetic CSV directly in your browser.
+
+**Publication note:** native Power BI / Tableau integrations are methodology examples until runnable native artifacts and independent tool validation are published. See the [BI calculation examples](https://github.com/Dicureck/Dicureck/blob/main/knowledge-base/bi-examples.md).
