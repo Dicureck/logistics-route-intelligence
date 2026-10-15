@@ -69,3 +69,6 @@ Designed by **Melissa Castro** as an original public demonstration of operationa
 The interactive portfolio view uses **its own independently generated, deterministic fictional sample**. It is an exploration companion—not the same dataset as this repository and not a claim of cross-project reconciliation. Filter records, inspect metrics and export synthetic CSV directly in your browser.
 
 **Publication note:** native Power BI / Tableau integrations are methodology examples until runnable native artifacts and independent tool validation are published. See the [BI calculation examples](https://github.com/Dicureck/Dicureck/blob/main/knowledge-base/bi-examples.md).
+
+
+**Release preparation:** [v0.1.0 notes](RELEASE_NOTES_DRAFT.md) · [Changelog](CHANGELOG.md). Formal GitHub Release pending.
